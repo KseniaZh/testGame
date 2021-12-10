@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\functions",
+    "\\src\\store",
+    "\\src\\store\\Game",
+    "\\src\\styles",
+    "\\src\\styles\\Game",
+    "\\src\\styles\\Home",
+    "\\src\\UI",
+    "\\src\\UI\\Buttons"
+  ],
+  "SelectedNode": "\\src\\styles\\index.scss",
+  "PreviewInSolutionExplorer": false
+}
