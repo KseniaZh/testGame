@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\functions",
-    "\\src\\store",
-    "\\src\\store\\Game",
+    "\\src\\components",
+    "\\src\\components\\Game",
+    "\\src\\containers",
+    "\\src\\containers\\Game",
+    "\\src\\containers\\Home",
+    "\\src\\containers\\Navigation",
     "\\src\\styles",
-    "\\src\\styles\\Game",
-    "\\src\\styles\\Home",
-    "\\src\\UI",
-    "\\src\\UI\\Buttons"
+    "\\src\\styles\\UI"
   ],
-  "SelectedNode": "\\src\\styles\\index.scss",
+  "SelectedNode": "\\src\\styles\\Game\\game.scss",
   "PreviewInSolutionExplorer": false
 }

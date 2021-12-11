@@ -61,7 +61,7 @@ function BlockOrderVariants(props) {
                     }
 
                 })
-            }
+                }
         </div>
 
     )

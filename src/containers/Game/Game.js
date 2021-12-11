@@ -105,6 +105,11 @@ function Game(props) {
                      />
             }
             {
+                flagGameStart & !flagGameFinish ?
+                        <div>ПРОСЛЕДИ НАПРАВЛЕНИЕ СТРЕЛОК  И ВЫБЕРИ КЛЕТКУ ФИНИШ</div>
+                        : null
+            }
+            {
                 flagGameFinish ?
                     <BlockButtonsFinishGame
                         onclickStartGame={handlerGameStartTry}
