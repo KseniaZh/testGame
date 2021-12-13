@@ -38,10 +38,6 @@ function Game(props) {
         };
     })
 
-    const [flagGameStart, setFlagGameStart] = useState(false);
-    const [flagGameFinish, setFlagGameFinish] = useState(false);
-    const [flagOpenResult, setFlagOpenResult] = useState(true);
-
     const stepGame = (indexActivButton, stateButtons, arrStep) => {
 
         let randomVariantIndex = randomItemFromArray(stateButtons[indexActivButton].variants);
@@ -50,6 +46,10 @@ function Game(props) {
         dispatch(changeActiveButton(stateButtons[indexActivButton][variant]));
         dispatch(addItemArrStepGame(variant, arrStep));
     }
+
+    const [flagGameStart, setFlagGameStart] = useState(false);
+    const [flagGameFinish, setFlagGameFinish] = useState(false);
+    const [flagOpenResult, setFlagOpenResult] = useState(true);
 
     const colorYellow = '#FFCC33';
     const colorRed = '#D2333E';

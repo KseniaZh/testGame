@@ -9,8 +9,9 @@
     "\\src\\containers\\Home",
     "\\src\\containers\\Navigation",
     "\\src\\styles",
+    "\\src\\styles\\Game",
     "\\src\\styles\\UI"
   ],
-  "SelectedNode": "\\src\\styles\\Game\\game.scss",
+  "SelectedNode": "\\src\\components\\Game\\BlockOrderVariants.js",
   "PreviewInSolutionExplorer": false
 }

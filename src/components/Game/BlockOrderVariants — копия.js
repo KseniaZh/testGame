@@ -5,31 +5,42 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
+function useInterval(callback, delay) {
+    const savedCallback = useRef();
+
+    // Remember the latest callback.
+    useEffect(() => {
+        savedCallback.current = callback;
+    }, [callback]);
+
+    // Set up the interval.
+    useEffect(() => {
+        function tick() {
+            savedCallback.current();
+        }
+        if (delay !== null) {
+            let id = setInterval(tick, delay);
+            return () => clearInterval(id);
+        }
+    }, [delay]);
+}
 
 function BlockOrderVariants(props) {
 
-    const savedNextMove = useRef();
-
     let [count, setCount] = useState(0);
-
-    const nextMove = () => {
-        props.stepGame(props.stateGame.activeButton, props.stateGame.stateButtons, props.stateGame.arrStepGame);
+    const [delay, setDelay] = useState(1000);
+    const [isRunning, setIsRunning] = useState(true);
+ 
+    useInterval(() => {
+        if (count === 9) {
+           // setDelay(null);
+            setIsRunning(false);
+        };
         setCount(count + 1);
-    }
+        props.stepGame(props.stateGame.activeButton, props.stateGame.stateButtons, props.stateGame.arrStepGame)
+    }, isRunning ? delay : null);
 
-    useEffect(() => {
-        savedNextMove.current = nextMove;
-    }, [nextMove]);
 
-    useEffect(() => {
-        function tick() {
-            savedNextMove.current();
-        }
-        if (count < 9) {
-            let id = setInterval(tick, 1000);
-            return () => clearInterval(id);
-        }
-    }, [count]);
 
     return (
  
@@ -51,7 +62,7 @@ function BlockOrderVariants(props) {
                     }
 
                 })
-           }
+                }
         </div>
 
     )
