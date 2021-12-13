@@ -38,7 +38,11 @@ function Game(props) {
         };
     })
 
-    const stepGame = (indexActivButton, stateButtons, arrStep) => {
+    const stepGame = (parameters) => {
+
+        let indexActivButton = parameters.activeButton;
+        let stateButtons = parameters.stateButtons;
+        let arrStep = parameters.arrStepGame;
 
         let randomVariantIndex = randomItemFromArray(stateButtons[indexActivButton].variants);
         let variant = stateButtons[indexActivButton].variants[randomVariantIndex];
@@ -96,7 +100,6 @@ function Game(props) {
                     <BlockOrderVariants
                         stateGame={stateGame}
                         stepGame={stepGame}
-
                     />
                     :<Button
                         classname="game__buttom_handler"
@@ -106,7 +109,7 @@ function Game(props) {
             }
             {
                 flagGameStart & !flagGameFinish ?
-                        <div>ПРОСЛЕДИ НАПРАВЛЕНИЕ СТРЕЛОК  И ВЫБЕРИ КЛЕТКУ ФИНИШ</div>
+                        <div>ПРОСЛЕДИ НАПРАВЛЕНИЕ СТРЕЛОК И ВЫБЕРИ КЛЕТКУ ФИНИШ</div>
                         : null
             }
             {

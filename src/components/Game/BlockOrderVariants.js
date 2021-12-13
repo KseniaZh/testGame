@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import useInterval from '../../hooks/useInterval';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -8,28 +10,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 function BlockOrderVariants(props) {
 
-    const savedNextMove = useRef();
-
-    let [count, setCount] = useState(0);
-
-    const nextMove = () => {
-        props.stepGame(props.stateGame.activeButton, props.stateGame.stateButtons, props.stateGame.arrStepGame);
-        setCount(count + 1);
-    }
-
-    useEffect(() => {
-        savedNextMove.current = nextMove;
-    }, [nextMove]);
-
-    useEffect(() => {
-        function tick() {
-            savedNextMove.current();
-        }
-        if (count < 9) {
-            let id = setInterval(tick, 1000);
-            return () => clearInterval(id);
-        }
-    }, [count]);
+    useInterval(props.stepGame, { ...props.stateGame }, 10, 1000);
 
     return (
  

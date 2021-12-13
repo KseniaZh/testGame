@@ -6,7 +6,9 @@ function Home(props) {
 
     return(
         <div className='homeWrapper' >
+
             <Game />
+
         </div>
     )
 }
